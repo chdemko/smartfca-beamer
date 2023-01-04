@@ -1,0 +1,48 @@
+% Copyright 2023 by Ch. Demko
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the BSD 3-Clause License.
+%
+
+\graphicspath{{./}}
+
+\useoutertheme{split}
+
+\setbeamertemplate{sidebar right}{}
+
+\newlength{\SmartFCALength}
+\setlength{\SmartFCALength}{\paperwidth}
+\addtolength{\SmartFCALength}{-16mm}
+\addtolength{\SmartFCALength}{-6pt}
+
+\setbeamertemplate{headline}
+{
+  \leavevmode%
+  \vskip2pt%
+  \hskip2pt%
+  \includegraphics[height=16mm]{SmartFCA.pdf}%
+  \hskip2pt%
+  \vtop{%
+    \vskip-16mm%
+    \hbox{%
+      \@tempdimb=2.4375ex%
+      \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+        \multiply\@tempdimb by\beamer@sectionmax%
+      \else%
+        \multiply\@tempdimb by\beamer@subsectionmax%
+      \fi%
+      \ifdim\@tempdimb>0pt%
+        \advance\@tempdimb by 1.825ex%
+        \begin{beamercolorbox}[wd=.5\SmartFCALength,ht=\@tempdimb]{section in head/foot}%
+          \vbox to\@tempdimb{\vfil\insertsectionnavigation{.5\SmartFCALength}\vfil}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.5\SmartFCALength,ht=\@tempdimb]{subsection in head/foot}%
+          \vbox to\@tempdimb{\vfil\insertsubsectionnavigation{.5\SmartFCALength}\vfil}%
+        \end{beamercolorbox}%
+      \fi%
+    }%
+  }%s
+}
+
